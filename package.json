@@ -1,0 +1,17 @@
+{
+  "name": "door24-proxy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2",
+    "google-spreadsheet": "^2.0.4"
+  },
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.11",
+    "standard": "^10.0.3"
+  }
+}
