@@ -1,5 +1,7 @@
 # door24-proxy
 
+Reads and writes to a google spreadsheet
+
 ## Setup
 
 ```

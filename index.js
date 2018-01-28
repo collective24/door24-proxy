@@ -2,23 +2,31 @@ const express = require('express')
 const GoogleSpreadsheet = require('google-spreadsheet')
 
 const app = express()
-const SHEET_ID = process.env.SHEET_ID
-const WHITELIST_WORKSHEET = 'whitelist'
-const serviceAccountCredentials = require(process.env.KEY_FILE_PATH)
+const { SHEET_ID, KEY_FILE_PATH } = process.env
+const WHITELIST_WORKSHEET_NAME = 'whitelist'
+const serviceAccountCredentials = require(KEY_FILE_PATH)
 const doc = new GoogleSpreadsheet(SHEET_ID)
 
 app.get('/whitelist', (req, res) => {
-  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Content-Type', 'application/json')
   doc.useServiceAccountAuth(serviceAccountCredentials, () => {
     doc.getInfo((err, info) => {
-      const sheet = info.worksheets[0]
-      sheet.getRows({}, (err, rows) => {
-        const json = rows.map(row => ({
-          rfid: row.rfid,
-          name: row.name
-        }))
-        res.send(JSON.stringify(json))
-      })
+      if (err) {
+        console.error('Error fething sheet:', err)
+      } else {
+        const sheet = info.worksheets.find(sheet => sheet.title === WHITELIST_WORKSHEET_NAME)
+        sheet.getRows({}, (err, rows) => {
+          if (err) {
+            console.error('Error getting rows:', err)
+          } else {
+            const json = rows.map(row => ({
+              rfid: row.rfid,
+              name: row.name
+            }))
+            res.send(JSON.stringify(json))
+          }
+        })
+      }
     })
   })
 })
