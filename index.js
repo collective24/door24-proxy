@@ -3,6 +3,9 @@ const asyncHandler = require('express-async-handler')
 
 const getWhitelist = require('./handler/getWhitelist')
 
+const PORT = process.env.NODE_ENV === 'production'
+  ? 80
+  : 3000
 const app = express()
 
 // TODO: error handling middleware that works with async handler?
@@ -18,4 +21,4 @@ app.post('/whitelist', (req, res) => res.send('Hello World!'))
 
 app.post('/log', (req, res) => res.send('Hello World!'))
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
