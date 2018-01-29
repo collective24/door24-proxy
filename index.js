@@ -3,9 +3,8 @@ const asyncHandler = require('express-async-handler')
 
 const getWhitelist = require('./handler/getWhitelist')
 
-const PORT = process.env.NODE_ENV === 'production'
-  ? 80
-  : 3000
+// heroku sets port
+const PORT = process.env.PORT || 3000
 const app = express()
 
 // TODO: error handling middleware that works with async handler?
