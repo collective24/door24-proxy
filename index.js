@@ -2,6 +2,8 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const asyncHandler = require('express-async-handler')
 
+const auth = require('./middleware/auth')
+
 const getWhitelist = require('./handler/getWhitelist')
 const addWhitelist = require('./handler/addWhitelist')
 
@@ -9,6 +11,7 @@ const addWhitelist = require('./handler/addWhitelist')
 const PORT = process.env.PORT || 3000
 const app = express()
 
+app.use(auth)
 app.use(bodyParser.text())
 
 // TODO: error handling middleware that works with async handler?
