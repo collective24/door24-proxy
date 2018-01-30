@@ -2,7 +2,8 @@ const Whitelist = require('../lib/Whitelist')
 const whitelist = new Whitelist()
 
 module.exports = async (req, res, next) => {
-  const list = await whitelist.getAll()
+  const newRfid = req.body
+  const { rfid } = await whitelist.add(newRfid)
   res.setHeader('Content-Type', 'text/plain')
-  res.send(list)
+  res.send(rfid)
 }
