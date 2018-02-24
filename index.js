@@ -4,9 +4,13 @@ const asyncHandler = require('express-async-handler')
 
 const auth = require('./middleware/auth')
 
-const getWhitelist = require('./handler/getWhitelist')
-const getWhitelistEntry = require('./handler/getWhitelistEntry')
-const addWhitelist = require('./handler/addWhitelist')
+const Whitelist = require('./lib/Whitelist')
+const whitelist = new Whitelist()
+
+const getWhitelist = require('./handler/getWhitelist')(whitelist)
+const getWhitelistEntry = require('./handler/getWhitelistEntry')(whitelist)
+const addWhitelist = require('./handler/addWhitelist')(whitelist)
+
 const addLogline = require('./handler/addLogline')
 
 // heroku sets port
