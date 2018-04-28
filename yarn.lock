@@ -2096,6 +2096,10 @@ mixin-deep@^1.2.0:
   dependencies:
     minimist "0.0.8"
 
+moment@^2.22.1:
+  version "2.22.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.1.tgz#529a2e9bf973f259c9643d237fda84de3a26e8ad"
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -2131,6 +2135,10 @@ natural-compare@^1.4.0:
 negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
+
+node-cron@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/node-cron/-/node-cron-1.2.1.tgz#8c90bc5dc723a56289b0786655ab4a1c4cb60368"
 
 node-forge@^0.7.1:
   version "0.7.1"
