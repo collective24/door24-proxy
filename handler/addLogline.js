@@ -5,5 +5,5 @@ module.exports = async (req, res, next) => {
   const rfid = req.body
   await log.add(rfid)
   res.setHeader('Content-Type', 'text/plain')
-  res.send(200)
+  res.sendStatus(200)
 }
