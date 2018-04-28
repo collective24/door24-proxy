@@ -13,6 +13,10 @@ const addWhitelist = require('./handler/addWhitelist')(whitelist)
 
 const addLogline = require('./handler/addLogline')
 
+const GarbageCollector = require('./lib/GarbageCollector')
+const gc = new GarbageCollector(whitelist)
+gc.start()
+
 // heroku sets port
 const PORT = process.env.PORT || 3000
 const app = express()
