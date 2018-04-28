@@ -15,7 +15,8 @@
   },
   "scripts": {
     "start": "node index.js",
-    "start-dev": "nodemon index.js"
+    "start-dev": "nodemon index.js",
+    "test": "standard"
   },
   "devDependencies": {
     "nodemon": "^1.14.11",
