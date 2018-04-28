@@ -11,16 +11,22 @@
     "express": "^4.16.2",
     "express-async-handler": "^1.0.3",
     "google-spreadsheet": "^2.0.4",
+    "jest": "^22.4.3",
     "moment": "^2.22.1",
     "node-cron": "^1.2.1"
   },
   "scripts": {
     "start": "node index.js",
     "start-dev": "nodemon index.js",
-    "test": "standard"
+    "lint": "standard",
+    "test": "jest --watch",
+    "test:ci": "jest"
   },
   "devDependencies": {
     "nodemon": "^1.14.11",
     "standard": "^10.0.3"
+  },
+  "standard": {
+    "env": [ "jest" ]
   }
 }
