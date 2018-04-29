@@ -29,4 +29,4 @@ app.get('/whitelist/:rfid', asyncHandler(getWhitelistEntry))
 app.post('/whitelist', asyncHandler(addWhitelist))
 app.post('/log', asyncHandler(addLogline))
 
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
+app.listen(PORT, () => console.log(`[index.js] Listening on port ${PORT}`))
