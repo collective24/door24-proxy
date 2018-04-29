@@ -1,6 +1,6 @@
 # door24-proxy
 
-Reads and writes to a google spreadsheet
+Manages RFID whitelist
 
 ## Setup
 
