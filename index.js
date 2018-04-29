@@ -10,12 +10,8 @@ const whitelist = new Whitelist()
 const getWhitelist = require('./handler/getWhitelist')(whitelist)
 const getWhitelistEntry = require('./handler/getWhitelistEntry')(whitelist)
 const addWhitelist = require('./handler/addWhitelist')(whitelist)
-
 const addLogline = require('./handler/addLogline')
-
-const GarbageCollector = require('./lib/GarbageCollector')
-const gc = new GarbageCollector(whitelist)
-gc.start()
+const cleanup = require('./handler/cleanup')(whitelist)
 
 // heroku sets port
 const PORT = process.env.PORT || 3000
@@ -28,5 +24,6 @@ app.get('/whitelist', asyncHandler(getWhitelist))
 app.get('/whitelist/:rfid', asyncHandler(getWhitelistEntry))
 app.post('/whitelist', asyncHandler(addWhitelist))
 app.post('/log', asyncHandler(addLogline))
+app.post('/cleanup', asyncHandler(cleanup))
 
 app.listen(PORT, () => console.log(`[index.js] Listening on port ${PORT}`))
