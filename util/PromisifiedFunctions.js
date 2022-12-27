@@ -1,4 +1,4 @@
-async function _getRows(reject, worksheet, callback) {
+async function _getRows (reject, worksheet, callback) {
   try {
     const rows = await worksheet.getRows()
     callback(rows)
